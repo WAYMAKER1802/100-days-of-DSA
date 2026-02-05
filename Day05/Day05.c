@@ -1,0 +1,30 @@
+//Problem: A system receives two separate logs of user arrival times from two different servers. Each log is already sorted in ascending order. Your task is to create a single chronological log that preserves the correct order of arrivals.
+#include <stdio.h>
+int main() {
+    int p, q, i = 0, j = 0;
+    int a[100], b[100];
+
+    scanf("%d", &p);
+    for (i = 0; i < p; i++) 
+    scanf("%d", &a[i]);
+
+    scanf("%d", &q);
+    for (j = 0; j < q; j++) 
+    scanf("%d", &b[j]);
+
+    i = j = 0;
+
+    while (i < p && j < q) {
+        if (a[i] < b[j])
+            printf("%d ", a[i++]);
+        else
+            printf("%d ", b[j++]);
+    }
+
+    while (i < p) 
+    printf("%d ", a[i++]);
+    while (j < q) 
+    printf("%d ", b[j++]);
+
+    return 0;
+}
